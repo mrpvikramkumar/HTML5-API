@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function loop() {
+        let j;
+        for (let i = 0; i <= 2000000000; i++) {
+          j = i;
+        }
+        alert("completed" + " " + j + "Iterations");
+      }
+      function hello() {
+        alert("hello world");
+      }
+    </script>
+  </head>
+  <body>
+    <input type="button" value="loop" onclick="loop()" />
+    <input type="button" value="hello" onclick="hello()" />
+  </body>
+</html>

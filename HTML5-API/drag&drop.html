@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box1,
+      #box2 {
+        float: left;
+        padding: 10px;
+        margin: 10px;
+        -moz-user-select: none;
+      }
+      #box1 {
+        background-color: aqua;
+        width: 60px;
+        height: 80px;
+      }
+
+      #box2 {
+        background-color: rgb(15, 27, 202);
+        width: 40px;
+        height: 30px;
+      }
+    </style>
+    <script>
+      function dragstart(ev) {
+        ev.dataTransfer.effectAllowed = "move";
+        ev.dataTransfer.setData("Text".ev.target.getAttributes("id"));
+        ev.dataTransfer.setDragImage(ev.target, 0, 0);
+        return true;
+      }
+      function dragEnter(ev) {
+        event.preventDefault();
+        return true;
+      }
+      function dragover(ev) {
+        return false;
+      }
+      function dragdrop(ev) {
+        let src = ev.dataTransfer.getData("Text");
+        ev.target.appendChild(document.getElementById(src));
+        ev.stopPropagation();
+        return false;
+      }
+    </script>
+  </head>
+  <body>
+    <center>
+      <div
+        id="box1"
+        draggable="true"
+        ondragstart="return dragstart(event)"
+      ></div>
+      <div
+        id="box2"
+        draggable="true"
+        ondragstart="return dragstart(event)"
+        ondragover="return dragover(event)"
+      ></div>
+    </center>
+  </body>
+</html>
